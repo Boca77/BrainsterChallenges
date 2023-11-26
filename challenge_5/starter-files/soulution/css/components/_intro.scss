@@ -1,0 +1,83 @@
+@use "../abstracts/mixins" as mix;
+
+.intro {
+  color: white;
+  background-image: linear-gradient(
+      rgba(77, 77, 77, 0.705),
+      rgba(77, 77, 77, 0.705)
+    ),
+    url("../../images/hero.jpg");
+  height: 100vh;
+  background-position: top;
+  @include mix.tablet-styles {
+    background-position: left;
+    height: 80vh;
+  }
+  nav {
+    display: flex;
+    text-transform: capitalize;
+    @include mix.wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    background-color: transparent;
+    @include mix.mobile-l-styles {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding: 0;
+      ul {
+        padding: 0;
+        justify-content: space-between;
+        width: 90%;
+
+        li {
+          margin: 0;
+        }
+      }
+
+      span {
+        padding: 10px 0;
+        font-size: 25px;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    li {
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+.title {
+  h1 {
+    margin-bottom: 16px;
+    @include mix.tablet-styles {
+      font-size: 50px;
+    }
+  }
+  p {
+    @include mix.tablet-styles {
+      font-size: 30px;
+    }
+  }
+  .btn {
+    @include mix.tablet-styles {
+      width: 60%;
+      font-size: 20px;
+    }
+  }
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  @include mix.tablet-styles {
+    height: calc(60vh - 80px);
+  }
+}

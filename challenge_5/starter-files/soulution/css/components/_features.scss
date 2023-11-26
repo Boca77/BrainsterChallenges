@@ -1,0 +1,72 @@
+@use "../abstracts/mixins" as mix;
+
+.features {
+  @include mix.wrap;
+  @include mix.section;
+  margin-bottom: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #f7f7f7;
+  text-align: center;
+  .services {
+    display: flex;
+    @include mix.tablet-styles {
+      flex-direction: column;
+    }
+
+    margin-left: -15px;
+    .content {
+      @include mix.section;
+      flex-basis: 33.33%;
+      .inner {
+        @include mix.tablet-styles {
+          margin-right: 0;
+        }
+        margin-right: 15px;
+        i {
+          color: #2590e5;
+          margin-bottom: 15px;
+        }
+        p {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+  .newsletter {
+    @include mix.section;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    form {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      @include mix.tablet-styles {
+        flex-direction: column;
+      }
+      input[type="email"] {
+        @include mix.tablet-styles {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+        padding: 10px;
+        height: 35px;
+        flex-basis: 30%;
+        margin-right: 15px;
+      }
+      .btn {
+        @include mix.tablet-styles {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        cursor: pointer;
+        flex-basis: 20%;
+        flex-grow: 0;
+        border: none;
+        color: white;
+      }
+    }
+  }
+}

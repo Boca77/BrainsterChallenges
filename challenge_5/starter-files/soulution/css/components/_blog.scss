@@ -1,0 +1,63 @@
+@use "../abstracts/mixins" as mix;
+
+.blog {
+  @include mix.wrap;
+  @include mix.section;
+  text-align: center;
+
+  .imgs-box {
+    @include mix.section;
+    display: flex;
+    flex-wrap: wrap;
+    @include mix.tablet-styles {
+      flex-direction: column;
+    }
+    .height {
+      height: 235px;
+    }
+    .inner {
+      margin-bottom: 15px;
+      @include mix.tablet-styles {
+        margin-bottom: 20px;
+      }
+    }
+    .img-40 {
+      flex-basis: 40%;
+    }
+    .img-60 {
+      flex-basis: 60%;
+    }
+    .img-1 {
+      background-image: url("./../../images/coast.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      @include mix.tablet-styles {
+        margin-right: 0;
+      }
+    }
+    .img-2 {
+      background-image: url("./../../images/island.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .img-3 {
+      background-image: url("./../../images/balloon.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      @include mix.tablet-styles {
+        margin-right: 0;
+      }
+    }
+    .img-4 {
+      background-image: url("./../../images/mountain.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
