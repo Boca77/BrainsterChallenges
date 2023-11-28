@@ -1,3 +1,3 @@
 Prvo napraviv project na git-lab BrainsteChallenges-BorisNachev_fs-15
-so inital commit README.md. Pota napraviv poseben branch za sekoj challenge i
+so initial commit README.md. Pota napraviv poseben branch za sekoj challenge i
 gi add,commit i pushnav challengesot do sega sto gi imav napraveno
