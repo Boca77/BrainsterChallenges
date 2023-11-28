@@ -1,0 +1,85 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mix;
+
+.nav {
+  @extend %section;
+  color: v.$text-color-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  position: fixed;
+  width: 20%;
+  img {
+    width: 100px;
+  }
+  @include mix.tablet-styles {
+    flex-direction: row;
+    height: 5vh;
+    width: 100%;
+    z-index: 2;
+    background-color: white;
+    align-items: center;
+    h1 {
+      margin: 0;
+      img {
+        width: 100px;
+      }
+    }
+  }
+  .menu,
+  .copyright {
+    @extend %wrap;
+  }
+
+  .menu {
+    ul {
+      margin-top: 100px;
+      list-style: none;
+      padding: 0;
+      text-transform: capitalize;
+
+      li {
+        margin: 15px 0;
+        a {
+          display: inline-block;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    font-size: 15px;
+    p {
+      width: 70%;
+    }
+
+    span {
+      font-weight: v.$font-weight-bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .burger {
+    display: none;
+    padding-right: 30px;
+    i {
+      border: solid 1px v.$text-color-primary;
+      padding: 5px;
+    }
+
+    @include mix.tablet-styles {
+      display: inline-block;
+    }
+  }
+  @include mix.tablet-styles {
+    ul,
+    .copyright {
+      display: none;
+    }
+  }
+}
