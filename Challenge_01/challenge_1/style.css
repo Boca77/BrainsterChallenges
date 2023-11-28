@@ -1,0 +1,167 @@
+body {
+    margin: 0;  
+    background-color: #638CAA;
+    color:white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin-top: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit; 
+}
+
+img{
+    max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.logo{
+    padding: 1% 13%;
+}
+
+.nav{
+    padding: 2% 8%;
+    
+}
+
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+.apple_logo{
+    width: 40px;
+}
+    
+ul{
+    list-style: none;  
+    
+}
+
+ul li{
+    display: inline-block;
+    max-width: 100px;
+    padding-right: 15px;       
+}
+
+.devices{
+    width: 30%;
+    clear: both;
+    margin: 1% auto;
+
+}
+
+.clear{
+    clear: both;
+}
+
+.black{
+    color: black;
+}
+
+.center{
+    text-align: center;
+}
+
+.icons_devices{
+    width: 25%;
+    text-align: center;
+    padding: 15px;
+    float: left;
+}
+
+.content{
+    float: left;
+    width: 50%;
+}
+
+.content div{
+    padding: 30px;
+}
+
+.ipad img{
+    width: 290px;
+}
+
+.iphone img{
+    width: 280px;
+}
+
+.macbook img{
+    padding-top: 30px;
+    width: 290px;
+}
+
+.tse{
+    float: left;
+    width: 33.333%;
+    padding: 2%;
+}
+
+.media{
+    padding: 100px;
+}
+
+.media ul li{
+    padding: 0 100px;
+} 
+
+footer{
+    background-color: #514354;
+    padding: 30px;
+}
+
+footer p{
+    margin: 0;
+}
+
+.paragraph{
+    text-align: justify;
+    font-size: 25px;
+    text-indent: 2%;
+    padding: 5px;
+}
+
+.bg-peach{
+    background-color: #DBDBDB;
+}
+
+.bg-lightbrown{
+    background-color: #BCB9AA;
+
+}
+
+.bg-torques{
+    background-color: #9CE0D1;
+}
+
+.bg-lightpurple{
+    background-color: #9AA7B8;
+}
+
+.bg-lightblue{
+    background-color: #B7CED6;
+}
+.bg-tomato{
+    background-color: #F09E84;
+}
+
+.nav ul li:hover{
+    color: #C1B6A0;
+}
