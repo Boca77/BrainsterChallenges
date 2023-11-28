@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.dark {
+  background-color: rgb(48, 47, 47);
+}
+
+.white-text {
+  color: white;
+}
+
+.demo-btn {
+  padding: 15px 20px;
+  display: inline-block;
+  margin-top: 25px;
+  box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.3);
+}
+
+.gray {
+  background-color: rgb(246, 246, 246);
+}
+
+.row {
+  display: flex;
+}
+
+nav {
+  justify-content: space-between;
+  padding: 30px 60px;
+  padding-bottom: 0;
+}
+
+.burger-menu {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+nav ul li {
+  padding-bottom: 30px;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* dropdown */
+nav ul li ul.dropdown li {
+  display: block;
+  margin: 0;
+  padding: 10px;
+}
+
+nav ul li ul.dropdown {
+  background: white;
+  top: 60px;
+  position: absolute;
+  z-index: 5;
+  display: none;
+}
+
+ul li:hover ul.dropdown {
+  display: block;
+}
+
+.portfolio {
+  width: 5.5%;
+}
+/* dropdown */
+
+.upper {
+  text-transform: uppercase;
+}
+
+.intro {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 76px);
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 30px;
+}
+
+.intro h3,
+.demo-btn {
+  font-size: 20px;
+}
+
+.wrapper {
+  padding: 80px 0;
+}
+
+.cards {
+  justify-content: center;
+}
+
+.cards .inner {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  flex-basis: 22%;
+  padding: 35px 0;
+  border-radius: 5px;
+}
+
+.card h2 {
+  margin-bottom: 5px;
+  font-size: 35px;
+  font-weight: 100;
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+.demo h2 {
+  font-size: 35px;
+}
+
+.demo ul {
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.demo ul li {
+  margin-bottom: 10px;
+  flex-basis: 5%;
+  padding: 8px 20px;
+  box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.3);
+  text-transform: capitalize;
+}
+
+.demo ul li a {
+  display: inline-block;
+}
+
+.demo ul li:not(:first-child) {
+  background-color: #e6e1e1;
+}
+
+.demo ul li:not(:first-child):hover,
+.demo ul li:not(:first-child):hover a {
+  background-color: rgb(45, 45, 45);
+  cursor: pointer;
+  color: white;
+}
+
+.demo ul li:not(:last-child) {
+  margin-right: 5px;
+}
+
+.demo ul li:first-child {
+  background-color: black;
+  color: white;
+}
+
+.demo .inner {
+  margin: 0 25px;
+}
+
+.pages {
+  margin: 0 auto;
+  width: 60%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pages .item {
+  flex-basis: 30%;
+  margin-top: 80px;
+}
+
+.shadow {
+  box-shadow: 0px 3px 5px 3px rgba(50, 50, 50, 0.3);
+}
+
+.pages .shadow:hover {
+  border: 2px black solid;
+}
+
+.pages h3 {
+  background-color: white;
+  padding: 15px;
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.features h2 {
+  font-size: 35px;
+  margin: 0;
+}
+
+.features p {
+  margin: 30px 0;
+}
+
+hr {
+  width: 2%;
+}
+
+.list {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list ul {
+  flex-basis: 30%;
+  margin: 30px 0;
+  list-style: url("../starter-files/images/arrow.png");
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.list ul li {
+  padding: 15px 0;
+}
+
+.media ul {
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.media ul li {
+  padding: 10px;
+}
+
+.media-icons {
+  color: #ffff;
+}
+
+.media-icons:hover {
+  color: rgb(48, 47, 47);
+}
+
+.footer-wrap {
+  justify-content: space-between;
+}
+
+footer p {
+  margin: 0;
+  font-size: 10px;
+}
+
+footer .item {
+  display: inline-block;
+}
+
+footer .item:last-child {
+  text-align: right;
+}
+
+.footer-wrap {
+  padding: 25px 10px;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-orange {
+  background-color: rgb(255, 84, 68);
+}
+
+.bg-purple {
+  background-color: rgb(170, 45, 182);
+}
+
+.bg-cyan {
+  background-color: rgb(30, 194, 164);
+}
+
+.bg-blue {
+  background-color: rgb(39, 139, 224);
+}
+
+.bg-darkgrey {
+  background-color: #464646;
+}
+
+@media (max-width: 700px) {
+  nav ul li {
+    display: none;
+  }
+
+  nav {
+    padding: 20px 15px;
+  }
+
+  .burger-menu {
+    display: inline-block;
+  }
+
+  .intro {
+    padding: 10%;
+  }
+
+  .cards {
+    padding: 25% 0;
+  }
+
+  .cards .inner {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 20px;
+  }
+
+  .demo ul {
+    flex-wrap: wrap;
+  }
+
+  .pages {
+    flex-direction: column;
+  }
+
+  .features p {
+    width: 80%;
+    padding-left: 30px;
+    text-align: left;
+  }
+
+  .list ul:last-child {
+    display: none;
+  }
+
+  .list ul {
+    flex-basis: 45%;
+  }
+
+  .list ul li {
+    line-height: 40px;
+  }
+}
