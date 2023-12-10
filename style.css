@@ -1,0 +1,28 @@
+.banner {
+  height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/image-01.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.back-ground {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.img1 {
+  background-image: url("./images/image-03.jpg");
+}
+
+.img2 {
+  background-image: url("./images/image-04.jpg");
+}
+
+.img3 {
+  background-image: url("./images/image-05.jpg");
+}
