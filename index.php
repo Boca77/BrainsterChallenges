@@ -1,10 +1,5 @@
 <?php
 
-$name;
-$rating;
-$rated;
-
-
 $date = date('H');
 $voters = [
     'Mila' => ['rated' => 'false', 'rating' => 5],
