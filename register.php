@@ -76,8 +76,6 @@
                     <?php
                     $emptyPasswordError = $_GET['emptyPasswordErrorMessage'] ?? '';
                     echo "<span class = 'text-danger'>$emptyPasswordError</span>";
-                    ?>
-                    <?php
                     $errorInvalidPassword = $_GET['errorInvalidPassword'] ?? '';
                     echo "<span class = 'error'>$errorInvalidPassword</span>";
                     ?>
