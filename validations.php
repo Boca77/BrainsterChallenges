@@ -34,7 +34,7 @@ function validateUsernameCharacters($username): bool
 
 function validatePasswordCharacters($password): bool
 {
-    if (preg_match('/^(?=.*\d)(?=.*[^\w\d\s])(?=.*[A-Z]).{8,}$/', $password)) {
+    if (preg_match('/^(?=.*\d)(?=.*[^\w\d\s])(?=.*[A-Z])/', $password)) {
         return false;
     }
     return true;
