@@ -1,2 +1,8 @@
 bnachev77@gmail.com, admin=$2y$10$hptCzIzhHEc05Iy7.WhCD.CpAuMS8mEmnrrJ6ckzw8g2RYPPmBHnm
 tessst@gmail.com, admin1=$2y$10$CuIaUNLn.284VdVV8YW.0OgRHHwh7NYBBWGMg7L.yqnvy76k4hX2G
+viktorija@gmail.com, Viktorija=$2y$10$/cwvn1iQi2USpI8dVUbFlOefdnZM4qJDP0kFwylGcMFVquJyn1Iw6
+ljubica@yahoo.com, Jubica=$2y$10$bJYbjGS31HdsdK48nK9M2ecHkpOyfCWE4uEGYxgz32PxbbzNBMr8m
+pavel@gmail.com, Paci=$2y$10$QU07x1cmGdsI5tPoldNwQeS04weV55I2p5TAhCEZvk0NDMOXZpKsS
+Miroljub@gmail.com, toobato=$2y$10$tyVHEU9uejC/UT6B4bvcd.9bfsykRI8aPyC93Lu99NNGOpa8O/GNG
+viktorija@yahoo.com, ViktorijaTrbl=$2y$10$umBU5p0BI4PE3xIhfRxmqeYz.qEXY6BOaJ98jsHPVkkU0rFT6D8iy
+admin3@gmail.com, admin3=$2y$10$w/H3VKAKUZPwgXghjwJYqeT/41dtzgNQ..wXjj5II..yVN9tHuL5u

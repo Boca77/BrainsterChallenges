@@ -34,16 +34,16 @@ function validateUsernameCharacters($username): bool
 
 function validatePasswordCharacters($password): bool
 {
-    if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password)) {
+    if (preg_match('/^(?=.*\d)(?=.*[^\w\d\s])(?=.*[A-Z]).{8,}$/', $password)) {
         return false;
     }
     return true;
 }
 
-// function validateEmailCharacters($validEmailCheck): bool
-// {
-//     if (strlen($validEmailCheck) < 5) {
-//         return true;
-//     }
-//     return false;
-// }
+function validateEmailCharacters($validEmailCheck): bool
+{
+    if (strlen($validEmailCheck) < 5) {
+        return true;
+    }
+    return false;
+}

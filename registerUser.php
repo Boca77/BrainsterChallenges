@@ -35,9 +35,8 @@ if (emptyEmailCheck($email)) {
 }
 $validEmail = explode('@', $email);
 $validEmailCheck = $validEmail[0];
-echo $validEmailCheck;
 if (empty($queryMessages['emptyEmailErrorMessage'])) {
-    if (strlen($validEmailCheck) < 5) {
+    if (validateEmailCharacters($validEmailCheck)) {
         $queryMessages['errorEmailCharacters'] = " Email must have at least 5 characters before @";
         $error = true;
     }
