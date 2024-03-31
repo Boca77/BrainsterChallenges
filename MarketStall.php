@@ -24,7 +24,7 @@ class MarketStall
                 'item' => $this->products[$item]
             ];
         }
-        return false;
+        return;
     }
 
     public function getProducts(): array
