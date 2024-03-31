@@ -21,9 +21,9 @@ class Cart
 
             echo $item['item']->getName() . ' | ' .
                 $item['amount'] . ' ' . $item['item']->getSellingBy() . ' | ' .
-                'total = ' . $item['item']->getPrice() . ' denars' . '<br>';
+                'total = ' . $item['item']->getPrice() * $item['amount'] . ' denars' . '<br>';
 
-            $totalPrice += $item['item']->getPrice();
+            $totalPrice += $item['item']->getPrice() * $item['amount'];
         }
         echo "<hr> Final price amount: $totalPrice denars";
     }
