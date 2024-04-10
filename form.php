@@ -55,7 +55,7 @@
             <input type="text" class="form-control p-2 my-2" id="subtitle" name="subtitle" />
             <label for="text-area">Something about yourself</label>
             <textarea class="form-control p-2 my-2" id="text-area" rows="3" name="user_info"></textarea>
-            <label for="tel">Subtitle of Page</label>
+            <label for="tel">Mobile number</label>
             <input type="tel" class="form-control p-2 my-2" id="tel" name="tel" />
             <label for="location">Location</label>
             <input type="text" class="form-control p-2 my-2" id="location" name="location_" />
