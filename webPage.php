@@ -13,7 +13,8 @@ $id = $_GET['id'];
 
 $getInfoQuery = new QueryPrepare();
 $getInfoQuery->setQuery('SELECT * FROM web_builder WHERE id = :id');
-$database->setInfo($getInfoQuery->prepareQueryFetch(':id', $id));
+$info = $getInfoQuery->prepareQueryFetch(':id', $id);
+$database->setInfo($info);
 
 ?>
 
@@ -95,8 +96,8 @@ $database->setInfo($getInfoQuery->prepareQueryFetch(':id', $id));
     </nav>
     <div id="banner" style="height: 100vh;">
         <div class="cover">
-            <h1 class="title h2" style="margin-top: 50px;"><?= $database->main_title ?></h1>
-            <h2 class="subtitle h1" style="margin-top: 250px;"><?= $database->subtitle ?> </h2>
+            <h1 class="title h2" style="margin-top: 150px;"><?= $database->main_title ?></h1>
+            <h2 class="subtitle h1" style="margin-top: 80px;"><?= $database->subtitle ?> </h2>
         </div>
         <div id="about-us">
             <h2 style="margin-top: 30px;">About Us</h2>
@@ -119,21 +120,33 @@ $database->setInfo($getInfoQuery->prepareQueryFetch(':id', $id));
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
                         <img class="card-img-top" style="max-height: 300px; object-fit: scale-down; " src=" <?= $database->img_url_1 ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                                                        echo 'Service';
+                                                    } else if ($database->service_products == 'Product') {
+                                                        echo 'Product';
+                                                    } ?> 1</h5>
                             <p class="card-text"><?= $database->description_1 ?></p>
                         </div>
                     </div>
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
                         <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $database->img_url_2  ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                                                        echo 'Service';
+                                                    } else if ($database->service_products == 'Product') {
+                                                        echo 'Product';
+                                                    } ?> 2</h5>
                             <p class="card-text"><?= $database->description_2 ?></p>
                         </div>
                     </div>
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
                         <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $database->img_url_3 ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                                                        echo 'Service';
+                                                    } else if ($database->service_products == 'Product') {
+                                                        echo 'Product';
+                                                    } ?> 3</h5>
                             <p class="card-text"><?= $database->description_3 ?></p>
                         </div>
                     </div>
