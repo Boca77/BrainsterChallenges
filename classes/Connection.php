@@ -1,5 +1,7 @@
 <?php
 
+namespace Connection;
+
 class Connection
 {
     const HOST = 'localhost';
