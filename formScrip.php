@@ -45,6 +45,11 @@ $query = "INSERT INTO `web_builder`
 
 $insertQuery = $connection->prepare($query);
 $insertQuery->execute($pageInfo);
-$id = 1;
-$id++;
+
+
+$getInfoQuery = $connection->prepare('SELECT * FROM web_builder');
+$getInfoQuery->execute();
+$info = $getInfoQuery->fetchAll(PDO::FETCH_ASSOC);
+
+$id = count($info);
 header("location: webPage.php?id=$id");

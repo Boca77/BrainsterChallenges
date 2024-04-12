@@ -7,7 +7,7 @@ $connection = $database->getConnection();
 $id = $_GET['id'];
 $getInfoQuery = $connection->prepare('SELECT * FROM web_builder WHERE id = :id');
 
-$getInfoQuery->bindParam(':id', $id, PDO::PARAM_STR);
+$getInfoQuery->bindParam(':id', $id, PDO::PARAM_INT);
 $getInfoQuery->execute();
 
 $info = $getInfoQuery->fetchAll(PDO::FETCH_ASSOC);

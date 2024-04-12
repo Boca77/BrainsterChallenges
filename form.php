@@ -48,17 +48,17 @@
         <div class="container form-control p-4">
           <div class="form-group">
             <label for="img_url">Cover image URL</label>
-            <input type="text" class="form-control p-2 my-2" id="img_url" name="cover_img_url" />
+            <input required type="text" class="form-control p-2 my-2" id="img_url" name="cover_img_url" />
             <label for="main_title">Main Title of Page</label>
-            <input type="text" class="form-control p-2 my-2" id="main_title" name="main_title" />
+            <input required type="text" class="form-control p-2 my-2" id="main_title" name="main_title" />
             <label for="subtitle">Subtitle of Page</label>
-            <input type="text" class="form-control p-2 my-2" id="subtitle" name="subtitle" />
+            <input required type="text" class="form-control p-2 my-2" id="subtitle" name="subtitle" />
             <label for="text-area">Something about yourself</label>
-            <textarea class="form-control p-2 my-2" id="text-area" rows="3" name="user_info"></textarea>
+            <textarea required class="form-control p-2 my-2" id="text-area" rows="3" name="user_info"></textarea>
             <label for="tel">Mobile number</label>
-            <input type="tel" class="form-control p-2 my-2" id="tel" name="tel" />
+            <input required type="tel" class="form-control p-2 my-2" id="tel" name="tel" />
             <label for="location">Location</label>
-            <input type="text" class="form-control p-2 my-2" id="location" name="location_" />
+            <input required type="text" class="form-control p-2 my-2" id="location" name="location_" />
           </div>
         </div>
         <div class="container form-control p-4 mt-3">
@@ -77,37 +77,37 @@
         <div class="form-group">
           <p>Provide image url and description of your service/product</p>
           <label for="img_url1">Image URL</label>
-          <input type="text" class="form-control p-2 my-1" id="img_url1" name="img_url1" />
+          <input required type="text" class="form-control p-2 my-1" id="img_url1" name="img_url1" />
 
           <label for="description_1">Description of service/product</label>
-          <textarea class="form-control p-2 my-1" id="description_1" rows="2" name="description_1"></textarea>
+          <textarea required class="form-control p-2 my-1" id="description_1" rows="2" name="description_1"></textarea>
 
           <label for="img_url2">Image URL</label>
-          <input type="text" class="form-control p-2 my-1" id="img_url2" name="img_url2" />
+          <input required type="text" class="form-control p-2 my-1" id="img_url2" name="img_url2" />
 
           <label for="description_2">Description of service/product</label>
-          <textarea class="form-control p-2 my-1" id="description_2" rows="2" name="description_2"></textarea>
+          <textarea required class="form-control p-2 my-1" id="description_2" rows="2" name="description_2"></textarea>
           <label for="img_url3">Image URL</label>
-          <input type="text" class="form-control p-2 my-1" id="img_url3" name="img_url3" />
+          <input required type="text" class="form-control p-2 my-1" id="img_url3" name="img_url3" />
 
           <label for="description_3">Description of service/product</label>
-          <textarea class="form-control p-2 my-1" id="description_3" rows="2" name="description_3"></textarea>
+          <textarea required class="form-control p-2 my-1" id="description_3" rows="2" name="description_3"></textarea>
         </div>
       </div>
       <div class="container form-control p-4 m-2">
         <div class="form-group">
           <label for="company">Provide a description for your company, something people should
             be aware of before they contact you:</label>
-          <textarea class="form-control p-2 my-2" id="company" rows="2" name="company_description"></textarea>
+          <textarea required class="form-control p-2 my-2" id="company" rows="2" name="company_description"></textarea>
           <hr />
           <label for="linkedin">Linked in</label>
-          <input type="text" class="form-control p-2 my-2" id="linkedin" name="linkedin" />
+          <input required type="text" class="form-control p-2 my-2" id="linkedin" name="linkedin" />
           <label for="facebook">Facebook</label>
-          <input type="text" class="form-control p-2 my-2" id="facebook" name="facebook" />
+          <input required type="text" class="form-control p-2 my-2" id="facebook" name="facebook" />
           <label for="twitter">Twitter</label>
-          <input type="text" class="form-control p-2 my-2" id="twitter" name="twitter" />
+          <input required type="text" class="form-control p-2 my-2" id="twitter" name="twitter" />
           <label for="google_plus">Google+</label>
-          <input type="text" class="form-control p-2 my-2" id="google_plus" name="google_plus" />
+          <input required type="text" class="form-control p-2 my-2" id="google_plus" name="google_plus" />
         </div>
       </div>
     </div>
