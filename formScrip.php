@@ -7,7 +7,7 @@ use FormData\FormData as FormData;
 use QueryPrepare\QueryPrepare as QueryPrepare;
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    return header('location: form.php?method_error=Pleas resubmit the form');
+    return header('location: form.php?method_error=Pleas%20resubmit%20the%20form');
 }
 
 $query = new FormData();

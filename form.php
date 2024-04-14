@@ -42,6 +42,17 @@
   <h1 class="text-center text-white">
     You are one step away from your webpage
   </h1>
+  <div class='row justify-content-center'>
+    <?php
+    $message = $_GET['method_error'] ?? '';
+    if (!empty($message)) {
+      echo " 
+            <div class='alert alert-danger col-6' role='alert'>
+               $message
+            </div>";
+    }
+    ?>
+  </div>
   <form action="./formScrip.php" method="POST">
     <div class="container d-flex align-items-start">
       <div class="container m-2 p-0">
