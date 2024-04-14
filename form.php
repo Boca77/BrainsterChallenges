@@ -53,7 +53,7 @@
     }
     ?>
   </div>
-  <form action="./formScrip.php" method="POST">
+  <form action="./formScript.php" method="POST">
     <div class="container d-flex align-items-start">
       <div class="container m-2 p-0">
         <div class="container form-control p-4">
