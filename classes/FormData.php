@@ -20,7 +20,7 @@ class FormData
         return $this->postData;
     }
 
-    public function startConnection()
+    private function startConnection()
     {
         $database = new Connection();
         $connection = $database->getConnection();

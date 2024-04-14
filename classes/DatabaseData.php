@@ -2,10 +2,6 @@
 
 namespace DatabaseData;
 
-require_once('./classes/Connection.php');
-
-use Connection\Connection as Connection;
-
 class DatabaseData
 {
     private array $userInfo;
@@ -52,12 +48,5 @@ class DatabaseData
         $this->facebook = $this->userInfo['facebook'];
         $this->twitter = $this->userInfo['twitter'];
         $this->google_plus = $this->userInfo['google_plus'];
-    }
-
-    public function startConnection()
-    {
-        $database = new Connection();
-        $connection = $database->getConnection();
-        return $connection;
     }
 }

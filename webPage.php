@@ -1,20 +1,26 @@
 <?php
 require_once('./classes/DatabaseData.php');
 require_once('./classes/QueryPrepare.php');
+require_once('./classes/Connection.php');
 
 use DatabaseData\DatabaseData as DatabaseData;
 use QueryPrepare\QueryPrepare as QueryPrepare;
+use Connection\Connection as Connection;
 
 
-$database = new DatabaseData();
-$connection = $database->startConnection();
+$databaseCon = new Connection();
+$connection = $databaseCon->getConnection();
+
+
 
 $id = $_GET['id'];
 
 $getInfoQuery = new QueryPrepare();
 $getInfoQuery->setQuery('SELECT * FROM web_builder WHERE id = :id');
 $info = $getInfoQuery->prepareQueryFetch(':id', $id);
-$database->setInfo($info);
+
+$databaseData = new DatabaseData();
+$databaseData->setInfo($info);
 
 ?>
 
@@ -29,7 +35,7 @@ $database->setInfo($info);
     <style>
         .cover {
             background-color: gray;
-            background-image: url(<?= $database->cover_img_url ?>);
+            background-image: url(<?= $databaseData->cover_img_url ?>);
             background-position: center;
             height: 65%;
             display: flex;
@@ -84,9 +90,9 @@ $database->setInfo($info);
                     <a class="nav-link text-body-tertiary" aria-current="page" href="#banner">Home</a>
                     <a class="nav-link text-body-tertiary" href="#about-us">About Us</a>
                     <a class="nav-link text-body-tertiary" href="#services/products">
-                        <?php if ($database->service_products == 'Service') {
+                        <?php if ($databaseData->service_products == 'Service') {
                             echo 'Service';
-                        } else if ($database->service_products == 'Product') {
+                        } else if ($databaseData->service_products == 'Product') {
                             echo 'Product';
                         } ?></a>
                     <a class="nav-link text-body-tertiary" href="#contact">Contact</a>
@@ -96,58 +102,58 @@ $database->setInfo($info);
     </nav>
     <div id="banner" style="height: 100vh;">
         <div class="cover">
-            <h1 class="title h2" style="margin-top: 150px;"><?= $database->main_title ?></h1>
-            <h2 class="subtitle h1" style="margin-top: 80px;"><?= $database->subtitle ?> </h2>
+            <h1 class="title h2" style="margin-top: 150px;"><?= $databaseData->main_title ?></h1>
+            <h2 class="subtitle h1" style="margin-top: 80px;"><?= $databaseData->subtitle ?> </h2>
         </div>
         <div id="about-us">
             <h2 style="margin-top: 30px;">About Us</h2>
-            <p style="width: 500px; margin-top: 15px;"><?= $database->user_info ?></p>
+            <p style="width: 500px; margin-top: 15px;"><?= $databaseData->user_info ?></p>
             <hr style="width: 550px;">
-            <p>Tel: <?= $database->tel ?></p>
-            <p>Location: <?= $database->location_ ?></p>
+            <p>Tel: <?= $databaseData->tel ?></p>
+            <p>Location: <?= $databaseData->location_ ?></p>
         </div>
     </div>
     <div class="container">
         <div id='services/products' class=" d-flex flex-column align-items-center">
             <div class="box">
                 <h2 style="margin-left: 25px;">
-                    <?php if ($database->service_products == 'Service') {
+                    <?php if ($databaseData->service_products == 'Service') {
                         echo 'Service';
-                    } else if ($database->service_products == 'Product') {
+                    } else if ($databaseData->service_products == 'Product') {
                         echo 'Product';
                     } ?></h2>
                 <div class="services-content d-flex justify-align-content-between align-items-start mb-5">
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
-                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down; " src=" <?= $database->img_url_1 ?>" alt="Card image cap">
+                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down; " src=" <?= $databaseData->img_url_1 ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                            <h5 class="card-title"> <?php if ($databaseData->service_products == 'Service') {
                                                         echo 'Service';
-                                                    } else if ($database->service_products == 'Product') {
+                                                    } else if ($databaseData->service_products == 'Product') {
                                                         echo 'Product';
                                                     } ?> 1</h5>
-                            <p class="card-text"><?= $database->description_1 ?></p>
+                            <p class="card-text"><?= $databaseData->description_1 ?></p>
                         </div>
                     </div>
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
-                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $database->img_url_2  ?>" alt="Card image cap">
+                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $databaseData->img_url_2  ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                            <h5 class="card-title"> <?php if ($databaseData->service_products == 'Service') {
                                                         echo 'Service';
-                                                    } else if ($database->service_products == 'Product') {
+                                                    } else if ($databaseData->service_products == 'Product') {
                                                         echo 'Product';
                                                     } ?> 2</h5>
-                            <p class="card-text"><?= $database->description_2 ?></p>
+                            <p class="card-text"><?= $databaseData->description_2 ?></p>
                         </div>
                     </div>
                     <div class="card mx-4 text-white" style="width: 23rem; background-color: #343A40">
-                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $database->img_url_3 ?>" alt="Card image cap">
+                        <img class="card-img-top" style="max-height: 300px; object-fit: scale-down;" src="<?= $databaseData->img_url_3 ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"> <?php if ($database->service_products == 'Service') {
+                            <h5 class="card-title"> <?php if ($databaseData->service_products == 'Service') {
                                                         echo 'Service';
-                                                    } else if ($database->service_products == 'Product') {
+                                                    } else if ($databaseData->service_products == 'Product') {
                                                         echo 'Product';
                                                     } ?> 3</h5>
-                            <p class="card-text"><?= $database->description_3 ?></p>
+                            <p class="card-text"><?= $databaseData->description_3 ?></p>
                         </div>
                     </div>
                 </div>
@@ -159,7 +165,7 @@ $database->setInfo($info);
         <div id='contact' class=" d-flex justify-content-between mb-3">
             <div class="content" style="padding-left: 25px; flex-basis: 45%;">
                 <h2>Contact</h2>
-                <p><?= $database->company_description ?></p>
+                <p><?= $databaseData->company_description ?></p>
             </div>
             <div class="form" style="flex-basis: 45%; padding-right: 25px;">
                 <form>
@@ -183,10 +189,10 @@ $database->setInfo($info);
     <footer class="d-flex flex-column align-items-center bg-dark">
         <p class="mb-3 text-white">Copyright by Boris @ Brainster</p>
         <ul style="list-style-type: none;" class="d-flex p-0 mb-0">
-            <li><a href="<?= $database->linkedIn ?>" target="_blank" class="m-1 ml-0">LinkedIn</a></li>
-            <li><a href="<?= $database->facebook ?>" target="_blank" class="m-1">Facebook</a></li>
-            <li><a href="<?= $database->twitter ?>" target="_blank" class="m-1">Twitter</a></li>
-            <li><a href="<?= $database->google_plus ?>" target="_blank" class="m-1">Google+</a></li>
+            <li><a href="<?= $databaseData->linkedIn ?>" target="_blank" class="m-1 ml-0">LinkedIn</a></li>
+            <li><a href="<?= $databaseData->facebook ?>" target="_blank" class="m-1">Facebook</a></li>
+            <li><a href="<?= $databaseData->twitter ?>" target="_blank" class="m-1">Twitter</a></li>
+            <li><a href="<?= $databaseData->google_plus ?>" target="_blank" class="m-1">Google+</a></li>
         </ul>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
