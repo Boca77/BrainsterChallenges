@@ -30,7 +30,7 @@ $row = $registrationData->rowData;
                     <div class="form-group ">
                         <label for="vehicle_model">Vehicle Model</label>
                         <select required class="form-select f-basis" name="vehicle_model" id="vehicle_model">
-                            <option value="<?= $row['vehicle_model'] ?>" selectedhidden><?= $row['vehicle_model'] ?></option>
+                            <option value="<?= $row['vehicle_model'] ?>" selected hidden><?= $row['vehicle_model'] ?></option>
                             <?php
                             foreach ($vehicleInfo->vehicleModels as $model) {
                                 echo "<option value='{$model['vehicle_model']}'>{$model['vehicle_model']}</option>";
@@ -43,7 +43,7 @@ $row = $registrationData->rowData;
                     <div class="form-group">
                         <label for="vehicle_type">Vehicle Type</label>
                         <select required class="form-select" name="vehicle_type" id="vehicle_type">
-                            <option value="<?= $row['vehicle_type'] ?>" selectedhidden><?= $row['vehicle_type'] ?></option>
+                            <option value="<?= $row['vehicle_type'] ?>" selected hidden><?= $row['vehicle_type'] ?></option>
                             <?php
                             foreach ($vehicleInfo->vehicleTypes as $type) {
                                 echo "<option value='{$type['vehicle_type']}'>{$type['vehicle_type']}</option>";
@@ -79,7 +79,7 @@ $row = $registrationData->rowData;
                     <div class="form-group">
                         <label for="fuel_type">Fuel Type</label>
                         <select required class="form-select" name="fuel_type" id="fuel_type">
-                            <option value="<?= $row['fuel_type'] ?>" selectedhidden><?= $row['fuel_type'] ?></option>
+                            <option value="<?= $row['fuel_type'] ?>" selected hidden><?= $row['fuel_type'] ?></option>
                             <?php
                             foreach ($vehicleInfo->fuelTypes as $fuel) {
                                 echo "<option value='{$fuel['fuel_type']}'>{$fuel['fuel_type']}</option>";
