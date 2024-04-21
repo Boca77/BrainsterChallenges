@@ -3,6 +3,11 @@ session_start();
 require_once('./classes/VehicleInfo.php');
 require_once('./classes/RegistrationData.php');
 
+if (!isset($_SESSION['logged_in'])) {
+    $_SESSION['error'] = 'Something went wrong try again';
+    header("Location: loginForm.php");
+}
+
 use RegistrationData\RegistrationData;
 use VehicleInfo\VehicleInfo;
 
@@ -25,7 +30,7 @@ $index = 0;
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Vehicle registration</span>
-            <a href="./index.php" class="link-info text-decoration-none">Log Out</a>
+            <a href="./logOut.php" class="link-info text-decoration-none">Log Out</a>
         </div>
     </nav>
     <form action="./registration.php" method="POST">
@@ -232,8 +237,6 @@ $index = 0;
 
                 ?>
             </tbody>
-
-
         </table>
     </div>
 </body>

@@ -25,7 +25,7 @@ class AdminValidation
         foreach ($this->adminData as $admin) {
             if (($username == $admin['username']) && ($email == $admin['email'])) {
                 if (password_verify($password, $admin['password'])) {
-
+                    $_SESSION['logged_in'] = true;
                     return true;
                 }
             }
