@@ -24,7 +24,6 @@ class ExtendReg
         $newDate = date('Y-m-d', strtotime('+1 year'));
 
         $extendQuery = $connection->prepare(self::QUERY);
-
         $extendQuery->bindParam(':newDate', $newDate, \PDO::PARAM_STR);
         $extendQuery->bindParam(':id', $this->row, \PDO::PARAM_INT);
 

@@ -14,6 +14,7 @@ class AdminValidation
     {
         $data = new AdminData();
         $this->adminData = $data->getData();
+
         foreach ($this->adminData as $key => $admin) {
             $this->adminData[$key]['password'] = password_hash($admin['password'], PASSWORD_DEFAULT);
         }
@@ -24,6 +25,7 @@ class AdminValidation
         foreach ($this->adminData as $admin) {
             if (($username == $admin['username']) && ($email == $admin['email'])) {
                 if (password_verify($password, $admin['password'])) {
+
                     return true;
                 }
             }

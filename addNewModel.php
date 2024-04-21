@@ -12,6 +12,7 @@ require_once('./classes/VehicleInfo.php');
 
 $newModel = new AddModel();
 $vehicleInfo = new VehicleInfo();
+
 foreach ($vehicleInfo->vehicleModels as $model) {
 
     if ($model['vehicle_model'] == $_POST['new_model']) {

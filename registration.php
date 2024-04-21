@@ -5,6 +5,9 @@ use RegistrationData\RegistrationData;
 
 require_once('./classes/AddRegData.php');
 require_once('./classes/RegistrationData.php');
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    return header('Location: vehicleRegistration.php?error=' . urlencode('Something went wrong try again'));
+}
 
 $data = new AddRegData($_POST);
 $dataDatabase = new RegistrationData();

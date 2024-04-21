@@ -17,7 +17,7 @@ $index = 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vehicle Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -128,7 +128,7 @@ $index = 0;
     </form>
 
     <div class="box px-5 my-5">
-        <div class="bg-dark p-2">
+        <div class="bg-light p-2">
             <form action="./search.php" method="POST">
                 <div class="row justify-content-end">
                     <div class="col-2 d-flex ">
@@ -177,6 +177,7 @@ $index = 0;
                             $extendBtn = '';
                         }
                         $index++;
+
                         echo "<tr>
                     <th scope='row'>{$index}</th>
                     <td style = 'color: $color'>{$search['vehicle_model']}</td>
@@ -186,7 +187,7 @@ $index = 0;
                     <td style = 'color: $color'>{$search['reg_number']}</td>
                     <td style = 'color: $color'>{$search['fuel_type']}</td>
                     <td style = 'color: $color'>{$search['reg_to']}</td>                  
-                    <td > <div class='d-flex'> <a href = 'delete.php?id='" . $search['id'] . " class='mx-1 btn btn-danger'>Delete</a>
+                    <td > <div class='d-flex'> <a href = 'delete.php?id=" . $id . "' class='mx-1 btn btn-danger'>Delete</a>
                     <a href = '' class='mx-1 btn btn-warning'>Edit</a>" . $extendBtn . "               
                     </div></td>           
                     </tr>";
@@ -211,6 +212,7 @@ $index = 0;
                                 $extendBtn = '';
                             }
                             $index++;
+
                             echo "<tr>
                     <th scope='row'>{$index}</th>
                     <td style = 'color: $color'>{$registration['vehicle_model']}</td>
