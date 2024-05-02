@@ -1,0 +1,17 @@
+table {
+  height: 1px;
+}
+.bar {
+  background-color: rgba(161, 158, 158, 0.616);
+  height: 100%;
+}
+
+.progress {
+  background-color: rgb(21, 189, 21);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  overflow: visible;
+}
