@@ -103,7 +103,7 @@ function addToList() {
       color = "green";
     }
 
-    book_stat.innerHTML += `<li style="color: ${color}"> You ${status} read ${book.title} by ${book.author} </li>`;
+    book_stat.innerHTML += `<li style="color: ${color};"> You ${status} read ${book.title} by ${book.author} </li>`;
   });
 }
 
@@ -119,7 +119,7 @@ function addToTable() {
     <td>${book.page_on}</td>
     <td style="padding: 0">
       <div class="bar">
-        <div class="progress" style="width: ${progress}%;">
+        <div class="progress" style="width: ${progress}%">
          ${Math.trunc(progress)}%
         </div>
       </div>
