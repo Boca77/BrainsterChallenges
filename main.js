@@ -6,7 +6,9 @@ $("#question-count").html(count);
 
 $("#start-btn").click(() => {
   $("#intro").hide();
-  $("#quiz").show("slow");
+  $("#quiz").show(() => {
+    $("#quiz").addClass("animate__animated", "animate__fadeInLeft");
+  });
 });
 
 const fetchQuestions = () => {
@@ -53,12 +55,14 @@ const fetchQuestions = () => {
             if (hashID > 20) {
               window.location.hash = `#end`;
 
-              $("#quiz").hide("slow");
-              $("#end").addClass(
-                "d-flex",
-                "animate__animated",
-                "animate__fadeInLeft"
-              );
+              $("#quiz").hide();
+              $("#end").show(() => {
+                $("#end").addClass(
+                  "d-flex",
+                  "animate__animated",
+                  "animate__fadeInLeft"
+                );
+              });
               $("#correct-count").html(correctCount);
             }
 
