@@ -44,6 +44,8 @@ const fetchQuestions = () => {
           answerDiv.appendChild(btn);
 
           btn.addEventListener("click", (e) => {
+            document.getElementById("start-over-msg").innerText = "";
+
             hashID++;
 
             e.target.parentElement.parentElement.parentElement.classList.add(
@@ -82,7 +84,7 @@ const fetchQuestions = () => {
       window.addEventListener("hashchange", hashHandler);
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     });
 };
 
@@ -91,6 +93,12 @@ $(document).ready(() => {
 });
 
 $("#start-over-btn").click(() => {
+  if (location.hash == "#question-1") {
+    document.getElementById("start-over-msg").innerText =
+      "Why start over on the first question? Try your luck!";
+    return;
+  }
+
   window.location.reload();
   localStorage.removeItem("correctQuestions: ");
 });
