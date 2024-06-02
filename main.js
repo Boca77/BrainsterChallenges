@@ -18,7 +18,7 @@ const fetchQuestions = () => {
       $("#loading").hide();
       $("#intro").show("slow");
 
-      localStorage.setItem("correctQuestions: ", correctCount);
+      localStorage.setItem("correctQuestions", correctCount);
 
       let id = 1;
       let hashID = 1;
@@ -65,17 +65,17 @@ const fetchQuestions = () => {
                   "animate__fadeInLeft"
                 );
               });
-              $("#correct-count").html(correctCount);
+              $("#correct-count").html(
+                localStorage.getItem("correctQuestions")
+              );
             }
 
-            if (count < 20) {
-              window.location.hash = `#question-${hashID}`;
-              $("#question-count").html(count);
-            }
+            correct = window.location.hash = `#question-${hashID}`;
+            $("#question-count").html(count);
 
             if (e.target.innerHTML === decodedCorrect) {
               correctCount++;
-              localStorage.setItem("correctQuestions: ", correctCount);
+              localStorage.setItem("correctQuestions", correctCount);
             }
           });
         });
@@ -88,9 +88,9 @@ const fetchQuestions = () => {
     });
 };
 
-$(document).ready(() => {
+setTimeout(() => {
   fetchQuestions();
-});
+}, 500);
 
 $("#start-over-btn").click(() => {
   if (location.hash == "#question-1") {
@@ -100,12 +100,12 @@ $("#start-over-btn").click(() => {
   }
 
   window.location.reload();
-  localStorage.removeItem("correctQuestions: ");
+  localStorage.removeItem("correctQuestions");
 });
 
 $("#try-again-btn").click(() => {
   window.location.reload();
-  localStorage.removeItem("correctQuestions: ");
+  localStorage.removeItem("correctQuestions");
 });
 
 function hashHandler() {
