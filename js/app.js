@@ -50,12 +50,12 @@ expenseSubmit.click((e) => {
   let expenseVal = Number(expenseAmount.val());
 
   if (isFirstTime) {
-    let table = $(`<table class="w-75">
+    let table = $(`<table class="w-100">
                 <thead>
-                  <tr class="list-item info-title">
-                    <th>Expenses Title</th>
-                    <th>Amount</th>
-                    <th></th>
+                  <tr class="info-title">
+                    <td class="list-item pb-4">Expenses Title</td>
+                    <td class="list-item pb-4">Amount</td>
+                    <td class="list-item pb-4 w-25"></td>
                   </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -107,11 +107,11 @@ function addExpenseRow(expenseTitle, expenseVal) {
   let tableBody = $("#table-body");
   let tableRow = $(`
     <tr class="showRed list-item expense-item">
-      <td class="expense-title">-${expenseTitle}</td>
-      <td class="expense-amount">${expenseVal}</td>
-      <td class="d-flex">
-        <i class="fa-solid fa-pen-to-square edit-icon list-item"></i>
-        <i class="fa-solid fa-trash delete-icon list-item"></i>
+      <td class="expense-title h2">-${expenseTitle}</td>
+      <td class="expense-amount h2">${expenseVal}</td>
+      <td class="px-5">
+        <i class="fa-solid fa-pen-to-square edit-icon px-3"></i>
+        <i class="fa-solid fa-trash delete-icon"></i>
       </td>
     </tr>
   `);
@@ -134,7 +134,7 @@ function addExpenseRow(expenseTitle, expenseVal) {
     let title = row.find(".expense-title").text();
     let amount = Number(row.find(".expense-amount").text());
 
-    expenseInput.val(title);
+    expenseInput.val(title.slice(1));
     expenseAmount.val(amount);
 
     expensesValue -= amount;
