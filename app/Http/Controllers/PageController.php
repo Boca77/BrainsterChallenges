@@ -37,7 +37,8 @@ class PageController extends Controller
             [
                 'pageTitle' => 'Posts',
                 'title' => "Man must explore, and this is exploration at it's greatest",
-                'subtitle' => "Problems look mighty small from 150 miles up",
+                'title2' => "Problems look mighty small from 150 miles up",
+                'subtitle' => "Posted by Start Bootstrap on August 24, 2018",
                 'bgUrl' => 'imgs/blog-image.jpg'
             ]
         );

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    @include('layout.nav')
+    @include('layout.header')
 
     @yield('content')
 
