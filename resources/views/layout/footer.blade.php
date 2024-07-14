@@ -5,9 +5,12 @@
         <div class="row">
             <div class="col-6 offset-3">
                 <div class="d-flex justify-content-between my-5">
-                    <i class="fa-brands fa-4x fa-square-twitter"></i>
-                    <i class="fa-brands fa-4x fa-square-facebook"></i>
-                    <i class="fa-brands fa-4x fa-github"></i>
+                    <a href="https://x.com/home?lang=en" target="_blank"><i
+                            class="fa-brands fa-4x fa-square-twitter text-dark"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i
+                            class="fa-brands fa-4x fa-square-facebook text-dark"></i></a>
+                    <a href="https://github.com/" target="_blank"><i
+                            class="fa-brands fa-4x fa-github text-dark"></i></a>
                 </div>
             </div>
         </div>
