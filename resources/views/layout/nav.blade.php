@@ -76,7 +76,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin</a>
                             </li>
                         </ul>
                     </div>

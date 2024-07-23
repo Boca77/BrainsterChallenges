@@ -5,7 +5,8 @@
         <div class="row">
             <h1 class="text-center mb-5">Log In</h1>
             <div class="col-6 offset-3">
-                <form action="{{}}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">

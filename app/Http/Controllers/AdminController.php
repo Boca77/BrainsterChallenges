@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Project;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-
-    public function __construct()
-    {
-        if (Session::has('user_id')) {
-            return view('admin.login');
-        }
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.login');
+        $projects = Project::all();
+
+        if (!\session()->has('admin')) {
+            return redirect()->route('admin.login');
+        }
+        return view('admin.dashboard', compact('projects'));
     }
 
     /**
@@ -70,12 +70,26 @@ class AdminController extends Controller
         //
     }
 
-    public function login()
+    public function login_form()
     {
+        return view('admin.login');
     }
 
-    public function dashboard()
+    public function login(Request $request)
     {
-        return view('admin.dashboard');
+        $admin = Admin::where('email', $request->input("email"))->first();
+
+        if (!$admin || !Hash::check($request->input('password'), $admin->password)) {
+
+            return redirect()->route('admin.login');
+        }
+        \session()->put('admin', $admin->id);
+        return redirect()->route('admin.dashboard');
+    }
+
+    public function logout()
+    {
+        \session()->flush();
+        return redirect()->route('admin.login');
     }
 }

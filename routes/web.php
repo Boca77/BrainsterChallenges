@@ -21,8 +21,14 @@ Route::get('/', [ProjectController::class, 'index'])
 Route::get('/project/{project}', [ProjectController::class, 'show'])
     ->name('project.show');
 
-Route::get('/admin/login', [AdminController::class, 'index'])
+Route::get('/admin/dashboard', [AdminController::class, 'index'])
+    ->name('admin.dashboard');
+
+Route::get('/admin/login', [AdminController::class, 'login_form'])
     ->name('admin.login');
 
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->name('admin.dashboard');
+Route::post('/login', [AdminController::class, 'login'])
+    ->name('login');
+
+Route::get('/logout', [AdminController::class, 'logout'])
+    ->name('logout');
