@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProjectController;
+use App\Mail\SampleEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +43,6 @@ Route::patch('/edit/{project}', [ProjectController::class, 'update'])
 
 Route::delete('/Delete/{project}', [ProjectController::class, 'destroy'])
     ->name("delete.project");
+
+Route::get('/sendMail', [ProjectController::class, 'sendmail'])
+    ->name('mail');

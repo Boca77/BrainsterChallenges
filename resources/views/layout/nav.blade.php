@@ -46,7 +46,7 @@
                                             <div class="modal-body text-start">Внесете ваши податоци за
                                                 да
                                                 стапиме во контакт
-                                                <form action="" class="my-2">
+                                                <form action="{{ route('mail') }}" class="my-2">
                                                     <div class="mb-3">
                                                         <label for="email" class="form-label">Е-мејл
                                                         </label>

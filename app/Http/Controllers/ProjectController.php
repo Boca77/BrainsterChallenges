@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Mail\SampleEmail;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProjectController extends Controller
 {
@@ -76,5 +78,11 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('admin.dashboard');
+    }
+
+    public function sendMail(Request $request)
+    {
+        Mail::to($request->input('email'))->send(new SampleEmail($request->input('company')));
+        return redirect()->back();
     }
 }
