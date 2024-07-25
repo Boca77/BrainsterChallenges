@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminRequest;
 use App\Models\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -75,7 +76,7 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function login(Request $request)
+    public function login(AdminRequest $request)
     {
         $admin = Admin::where('email', $request->input("email"))->first();
 

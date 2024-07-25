@@ -32,3 +32,12 @@ Route::post('/login', [AdminController::class, 'login'])
 
 Route::get('/logout', [AdminController::class, 'logout'])
     ->name('logout');
+
+Route::post('/addProject', [ProjectController::class, 'store'])
+    ->name('add.project');
+
+Route::patch('/edit/{project}', [ProjectController::class, 'update'])
+    ->name("edit.project");
+
+Route::delete('/Delete/{project}', [ProjectController::class, 'destroy'])
+    ->name("delete.project");

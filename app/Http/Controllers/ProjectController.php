@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,18 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        //
+
+        Project::create([
+            'title' => $request->input('title'),
+            'subtitle' => $request->input('subtitle'),
+            'description' => $request->input('description'),
+            'url' => $request->input('url'),
+            'image' => $request->input('image'),
+        ]);
+
+        return redirect()->route('admin.dashboard')->with('message', 'Продуктот е успешно додаден');
     }
 
     /**
@@ -38,7 +48,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-
         return view("project", compact('project'));
     }
 
@@ -55,7 +64,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+
+        $project->update($request->all());
+        return redirect()->route('admin.dashboard');
     }
 
     /**
@@ -63,6 +74,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.dashboard');
     }
 }
