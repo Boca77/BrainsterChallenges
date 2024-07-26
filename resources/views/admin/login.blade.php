@@ -11,16 +11,16 @@
                         <p>{{ $message }}</p>
                     @enderror
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
+                        <label for="email" class="form-label">Е-мејл</label>
                         <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Пасворд</label>
                         <input type="password" name="password" class="form-control" id="password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-warning text-black w-100">Логирај се</button>
                 </form>
             </div>
         </div>
