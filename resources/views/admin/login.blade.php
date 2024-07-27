@@ -1,5 +1,7 @@
 @extends('layout.main')
 
+@section('title', 'Admin Login')
+
 @section('content')
     <div class="container">
         <div class="row">

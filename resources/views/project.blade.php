@@ -1,5 +1,7 @@
 @extends('layout.main')
 
+@section('title', 'Project Showcase')
+
 @section('content')
     <div class="container text-center mt-5">
         <div class="row">

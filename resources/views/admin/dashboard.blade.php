@@ -1,9 +1,11 @@
 @extends('layout.main')
 
+@section('title', 'Admin Dashboard')
+
 @section('content')
     <div class="container-lg mt-3 px-4">
         <div class="row">
-            {{-- <a href="{{ route('logout') }}">Log Out</a> --}}
+            <a href="{{ route('logout') }}">Log Out</a>
             <div class="col-lg-1 col-md-2 col-sm-3 col-3 p-0 text-center">
                 <p id="add"
                     class="mb-0 border border-top-0 border-start-0 border-end-0 border-bottom border-2 rounded-top p-1">
@@ -51,7 +53,8 @@
                                 </button>
 
                                 <button type="button" class="px-3 border-2 border rounded" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal{{ $project->id }}P" data-id="{{ $project->id }}-delbtn">
+                                    data-bs-target="#exampleModal{{ $project->id }}P"
+                                    data-id="{{ $project->id }}-delbtn">
                                     <i class="fa-solid fa-xmark fa-xl"></i>
                                 </button>
 

@@ -1,5 +1,7 @@
 @extends('layout.main')
 
+@section('title', 'Home Page')
+
 @section('content')
     <div style="background-image: 
     linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)),
