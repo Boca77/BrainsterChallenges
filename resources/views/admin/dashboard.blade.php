@@ -3,6 +3,7 @@
 @section('content')
     <div class="container-lg mt-3 px-4">
         <div class="row">
+            {{-- <a href="{{ route('logout') }}">Log Out</a> --}}
             <div class="col-lg-1 col-md-2 col-sm-3 col-3 p-0 text-center">
                 <p id="add"
                     class="mb-0 border border-top-0 border-start-0 border-end-0 border-bottom border-2 rounded-top p-1">
@@ -69,29 +70,44 @@
                                         <label for="title" class="form-label">Име</label>
                                         <input type="text" name="title" class="form-control" id="title"
                                             value="{{ $project->title }}">
+                                        @error('title')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="subtitle" class="form-label">Поднаслов</label>
                                         <input type="text" name="subtitle" class="form-control" id="subtitle"
                                             value="{{ $project->subtitle }}">
+                                        @error('subtitle')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Слика</label>
                                         <input type="url" name="image" class="form-control" placeholder='https://'
                                             id="image" value="{{ $project->image }}">
+                                        @error('image')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="url" class="form-label">URL</label>
                                         <input type="url" name="url" class="form-control" placeholder='https://'
                                             id="url" value="{{ $project->url }}">
+                                        @error('url')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Опис</label>
                                         <textarea name="description" id="description" class="form-control" rows="3">{{ $project->description }}</textarea>
+                                        @error('description')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 

@@ -1,8 +1,8 @@
 <footer>
-    <div class="contianer bg-light mt-5">
-        <div class="row vw-100">
+    <div class="contianer bg-light mt-5 py-3">
+        <div class="row w-100">
             <div class="col text-center">
-                <p>
+                <p class="mb-0">
                     Made with ❤️ by <img style="width: 35px" class="mx-3"
                         src="{{ asset('images/logo_footer_black.png') }}" alt="">- <a
                         href="https://www.facebook.com/brainster.co/" class="text-success text-decoration-none"

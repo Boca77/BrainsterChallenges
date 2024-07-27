@@ -82,7 +82,7 @@ class AdminController extends Controller
 
         if (!$admin || !Hash::check($request->input('password'), $admin->password)) {
 
-            return redirect()->route('admin.login');
+            return redirect()->route('admin.login')->withErrors('Wrong credentials');
         }
         \session()->put('admin', $admin->id);
         return redirect()->route('admin.dashboard');

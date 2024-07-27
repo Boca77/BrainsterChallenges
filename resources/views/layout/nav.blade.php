@@ -22,7 +22,7 @@
                         Дизајн</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://blog.brainster.co/">Блог</a>
+                    <a class="nav-link" target="_blank" href="https://blog.brainster.co/">Блог</a>
                 </li>
                 <li class="nav-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
