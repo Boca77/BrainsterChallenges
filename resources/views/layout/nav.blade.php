@@ -45,21 +45,22 @@
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Е-мејл
                                             </label>
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                aria-describedby="emailHelp">
+                                            <input type="email" required class="form-control" name="email"
+                                                id="email" aria-describedby="emailHelp">
 
                                         </div>
                                         <div class="mb-3">
                                             <label for="tel" class="form-label">Телефон
                                             </label>
-                                            <input type="tel" class="form-control" id="tel" name="tel"
-                                                aria-describedby="emailHelp">
+                                            <input type="tel" required class="form-control" id="tel"
+                                                name="tel" aria-describedby="emailHelp">
 
                                         </div>
                                         <div class="mb-3">
                                             <label for="company" class="form-label">Компанија
                                             </label>
-                                            <input type="text" class="form-control" name="company" id="company">
+                                            <input type="text" required class="form-control" name="company"
+                                                id="company">
 
                                         </div>
                                         <button type="submit" class="btn w-100 bg-warning">Испрати</button>
