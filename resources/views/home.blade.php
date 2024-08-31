@@ -12,6 +12,16 @@
         </div>
     @endif
 
+    {{-- Error message --}}
+    @if (session()->has('error'))
+        <div class="container">
+            <div class="row mt-2">
+                <div class="alert alert-danger text-danger fw-bold">
+                    {{ session()->get('error') }}
+                </div>
+            </div>
+        </div>
+    @endif
 
     {{-- WELCOME TO THE FORUM --}}
     <div class="container">
