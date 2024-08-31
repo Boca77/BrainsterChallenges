@@ -22,4 +22,10 @@ class Post extends Model
 
         return $this->belongsTo(Categories::class);
     }
+
+    public function isApproved()
+    {
+
+        return $this->approved;
+    }
 }

@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- Not authenticated message --}}
+    @if (session('message'))
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-6 offset-3 alert alert-danger text-danger fw-bold">
+                    {{ session()->get('message') }}
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

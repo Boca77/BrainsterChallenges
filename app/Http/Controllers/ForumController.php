@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Categories;
+use App\Models\Comments;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
@@ -14,9 +14,19 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('user', 'category')->get();
+        $posts = Post::with('user', 'category')->where('approved', '=', true)->get();
 
         return view('home', compact('posts'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function unApproved()
+    {
+        $posts = Post::with('user', 'category')->where('approved', '=', false)->get();
+
+        return view('unapproved-posts', compact('posts'));
     }
 
     /**
@@ -36,12 +46,14 @@ class ForumController extends Controller
     {
         $data = $request->except('image');
         $path = $request->file('image')->store('public/images');
+
         $data['image'] = $path;
         $data['user_id'] = auth()->user()->id;
 
         Post::create($data);
 
-        return redirect()->route('home')->with('success', 'Successfully added a new discussion');
+        return redirect()->route('home')
+            ->with('success', 'Discussion successfully created! It needs to be approved before you dig into in thought!');
     }
 
     /**
@@ -49,7 +61,9 @@ class ForumController extends Controller
      */
     public function show(Post $post)
     {
-        return view('show-post', compact('post'));
+        $comments = Comments::with('post', 'user')->where('post_id', '=', $post->id)->get();
+
+        return view('show-post', compact('post', 'comments'));
     }
 
     /**
@@ -65,15 +79,27 @@ class ForumController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $data = $request->except('image');
         $path = $request->file('image')->store('public/images');
+
         $data['image'] = $path;
 
         $post->update($data);
 
         return redirect()->route('home')->with('success', 'Successfully updated the selected discussion');
+    }
+
+    /**
+     * Admin approves post
+     */
+    public function approve(Post $post)
+    {
+
+        $post->update(['approved' => true]);
+
+        return redirect()->route('home')->with('success', 'Post successfully approved');
     }
 
     /**

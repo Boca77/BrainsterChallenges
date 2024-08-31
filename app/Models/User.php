@@ -50,4 +50,20 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    /**
+     * Returns if the authenticated user has any posts
+     */
+    public function userHasPosts($postId): bool
+    {
+        return $this->id == $postId;
+    }
+
+    /**
+     * Returns if the authenticated user has any comments
+     */
+    public function userHasComments($commentId): bool
+    {
+        return $this->id == $commentId;
+    }
 }

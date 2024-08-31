@@ -5,23 +5,37 @@
     @if (session()->has('success'))
         <div class="container">
             <div class="row mt-2">
-                <div class="alert alert-success">
+                <div class="alert alert-success text-success fw-bold">
                     {{ session()->get('success') }}
                 </div>
             </div>
         </div>
     @endif
 
+
+    {{-- WELCOME TO THE FORUM --}}
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 mb-5">
+            <div class="col-md-8 mt-4 mb-3">
                 <h1 class="text-center">Welcome to the Forum</h1>
             </div>
         </div>
-        <a href="{{ route('add.post') }}" class="btn btn-secondary">Add a new disscusion</a>
+
+        {{-- Add a new post button --}}
+        <div class="container">
+            <a href="{{ route('add.post') }}" class="btn btn-secondary">Add new discussion</a>
+        </div>
+
+        @if (auth()->check() && auth()->user()->isAdmin())
+            {{-- Admin rewiev button --}}
+            <div class="container mt-2">
+                <a href="{{ route('unapproved.posts') }}" class="btn btn-primary text-black">Approve disscussions</a>
+            </div>
+        @endif
     </div>
 
-    {{-- Post Display --}}
+
+    {{-- Approved Posts Display --}}
     <div class="container mt-2">
         <div class="row">
             @forelse($posts as $post)
@@ -41,19 +55,35 @@
                         </div>
                     </a>
 
-                    <div class="col-12 col-sm-3 col-md-2 col-lg-1 mb-2 mb-sm-0 justify-content-end">
+                    <div class="col-12 col-sm-3 col-md-2 col-lg-1 mb-2 mb-sm-0 text-end">
 
                         {{-- Checks if the authenticated user is admin or does he have posts --}}
-                        @if ((auth()->check() && auth()->user()->isAdmin()) || (auth()->check() && auth()->user()->id == $post->user->id))
-                            <a href="" class="text-black"><i class="fa-sharp fa-md fa-solid fa-check"></i></a>
-                            <a href="{{ route('edit.post', $post->id) }}" class="text-black"><i
-                                    class="fa-solid fa-md fa-pen-to-square"></i></a>
+                        @if (auth()->check())
+                            @php
+                                $user = auth()->user();
+                                $canEditOrDelete = $user->userHasPosts($post->user->id) || $user->isAdmin();
+                            @endphp
 
-                            <form class="d-inline " action="{{ route('delete.post', $post->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="btn d-inline p-0 "><i class="fa-solid fa-md fa-trash-can"></i></button>
-                            </form>
+                            @if ($canEditOrDelete)
+                                @if ($user->isAdmin() && !$post->isApproved())
+                                    <a href="" class="text-black text-decoration-none">
+                                        <i class="fa-sharp fa-md fa-solid fa-check"></i>
+                                    </a>
+                                @endif
+
+                                <a href="{{ route('edit.post', $post->id) }}" class="text-black text-decoration-none">
+                                    <i class="fa-solid fa-md fa-pen-to-square"></i>
+                                </a>
+
+                                <form class="d-inline" action="{{ route('delete.post', $post->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button class="btn d-inline p-0">
+                                        <i class="fa-solid fa-md fa-trash-can"></i>
+                                    </button>
+                                </form>
+                            @endif
                         @endif
                     </div>
 

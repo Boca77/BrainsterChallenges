@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ForumController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::get('/show-post/{post}', [ForumController::class, 'show'])
 
 // Protected routes only for logged in users
 Route::group(['middleware' => 'auth'], function () {
-
+    // Discussion routes
     Route::get('/add-post', [ForumController::class, 'create'])
         ->name('add.post');
 
@@ -40,4 +41,27 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::delete('/delete-post/{post}', [ForumController::class, 'destroy'])
         ->name('delete.post');
+
+    // Comment routes
+    Route::post('/store-comment', [CommentsController::class, 'store'])
+        ->name('store.comment');
+
+    Route::get('/add-comment/{post_id}', [CommentsController::class, 'create'])
+        ->name('add.comment');
+
+    Route::get('/edit-comment/{comment}', [CommentsController::class, 'edit'])
+        ->name('edit.comment');
+
+    Route::put('/update-comment/{comment}', [CommentsController::class, 'update'])
+        ->name('update.comment');
+
+    Route::delete('/delete-comment/{comment}', [CommentsController::class, 'destroy'])
+        ->name('delete.comment');
+
+    // admin routes
+    Route::get('/unapproved-posts', [ForumController::class, 'unApproved'])
+        ->name('unapproved.posts');
+
+    Route::put('/approve-post/{post}', [ForumController::class, 'approve'])
+        ->name('approve.post');
 });
