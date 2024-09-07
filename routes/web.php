@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
         ->name('home');
 
+    Route::get('/match/show/{game}', [GameController::class, 'show'])
+        ->name('match.show');
+
     // Routes only for the admin
 
     Route::group(['middleware' => 'is_admin'], function () {

@@ -26,6 +26,7 @@
                                     <th scope="col">Team 1</th>
                                     <th scope="col">Team 2</th>
                                     <th scope="col">Resault</th>
+                                    <th scope="col"></th>
                                     @if (auth()->user()->is_admin)
                                         <th></th>
                                     @endif
@@ -44,6 +45,7 @@
                                                 /
                                             @endif
                                         </td>
+                                        <td><a href="{{ route('match.show', $game->id) }}">See players</a></td>
 
                                         @if (auth()->user()->is_admin)
                                             <td>

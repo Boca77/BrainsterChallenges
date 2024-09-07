@@ -24,13 +24,7 @@ class GameController extends Controller
      */
     public function store(GameRequest $request)
     {
-        $data = $request->all();
-
-        if (Carbon::parse($request->played_at)->lt(Carbon::today())) {
-            $data['is_played'] = true;
-        }
-
-        Game::create($data);
+        Game::create($request->all());
 
         $games = Game::with('away', 'home')->get();
 
@@ -42,7 +36,10 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        //
+        $home = $game->home;
+        $away = $game->away;
+
+        return view('game', compact('game', 'away', 'home'));
     }
 
     /**

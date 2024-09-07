@@ -35,7 +35,7 @@
 
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
-                                <input type="date" class="form-control" name="played_at" id="date"
+                                <input type="datetime" class="form-control" name="played_at" id="date"
                                     value="{{ $game->played_at }}">
                             </div>
 

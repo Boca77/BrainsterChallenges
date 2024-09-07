@@ -13,34 +13,37 @@ class GetRandomMatch extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-random-match';
+    protected $signature = 'app:set-score';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Sets score to a random match in the past 24h';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        // Gets a random match played in the last 24h
+        // Sets a score to a random match played in the last 24h
 
         $game = Game::query()->with('home', 'away')
-            ->where('played_at', '>', Carbon::now()->subDay())
-            ->where('played_at', '<', Carbon::now())
+            ->whereBetween('played_at', [Carbon::now()->subHours(24), Carbon::now('CEST')])
+            ->whereNull('score')
             ->inRandomOrder()
             ->first();
 
         if ($game) {
 
-            $this->info("Home Team: " . $game->home->name . " - Away Team: " . $game->away->name . " Score: " . $game->score . "Played At: " . $game->played_at);
+            $game->update(
+                [
+                    'score' => fake()->numberBetween(0, 9) . ' - ' . fake()->numberBetween(0, 9),
+                ]
+            );
         } else {
-
-            $this->info('no game played');
+            $this->info('error');
         }
     }
 }

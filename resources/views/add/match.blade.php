@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Create new Team') }}</div>
                     <div class="card-body">
-                        
+
                         {{-- Form to add a new match --}}
                         <form action="{{ route('match.store') }}" method="POST">
                             @csrf
@@ -34,7 +34,7 @@
 
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
-                                <input type="date" class="form-control" name="played_at" id="date">
+                                <input type="datetime-local" class="form-control" name="played_at" id="date">
                             </div>
 
                             <button type="submit" class="btn btn-success">Save</button>

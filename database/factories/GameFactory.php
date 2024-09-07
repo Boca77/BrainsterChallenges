@@ -20,8 +20,8 @@ class GameFactory extends Factory
         return [
             'home_id' => Team::inRandomOrder()->first()->id,
             'away_id' => Team::inRandomOrder()->first()->id,
-            'score' => fake()->randomDigit() . '-' . fake()->randomDigit(),
-            'played_at' => fake()->date()
+            'score' => fake()->randomDigit() . ' - ' . fake()->randomDigit(),
+            'played_at' => fake()->dateTime()
         ];
     }
 }
