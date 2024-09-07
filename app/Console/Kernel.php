@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:set-score')->everyMinute();
+        $schedule->command('app:set-score')->dailyAt('08:00');
     }
 
     /**

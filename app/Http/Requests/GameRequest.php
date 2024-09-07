@@ -24,7 +24,7 @@ class GameRequest extends FormRequest
         return [
             'home_id' => 'required|exists:teams,id',
             'away_id' => 'required|exists:teams,id',
-            'played_at' => 'required|date',
+            'played_at' => 'required|date|after_or_equal:now',
         ];
     }
 }
