@@ -1,88 +1,80 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-    const tableBody = document.getElementById("display-vehicle");
-    let counter = 1;
+const tableBody = $("#display-vehicle");
+let counter = 1;
 
-    fetch("/api/home")
-        .then((response) => response.json())
-        .then((response) => {
-            console.log(response.data);
+$.ajax({
+    url: "/api/home",
+    method: "GET",
+    dataType: "json",
+    success: function (response) {
+        console.log(response.data);
 
-            response.data.forEach((vehicle) => {
-                let tableRow = document.createElement("tr");
+        response.data.forEach((vehicle) => {
+            let tableRow = $("<tr>");
 
-                const vehicleData = [
-                    counter,
-                    vehicle.model,
-                    vehicle.brand,
-                    vehicle.plate_number,
-                    vehicle.insurance_date,
-                ];
+            const vehicleData = [
+                counter,
+                vehicle.model,
+                vehicle.brand,
+                vehicle.plate_number,
+                vehicle.insurance_date,
+            ];
 
-                vehicleData.forEach((data) => {
-                    tableRow.appendChild(createCell(data));
-                });
-
-                let actionEdit = document.createElement("a");
-                actionEdit.textContent = "Edit";
-                actionEdit.href = `/edit/${vehicle.id}`;
-
-                let actionDelete = document.createElement("a");
-                actionDelete.textContent = "Delete";
-                actionDelete.dataset.vehicleId = vehicle.id;
-                actionDelete.href = "#";
-                actionDelete.addEventListener("click", handleDelete);
-
-                let actionCell = document.createElement("td");
-                actionCell.appendChild(actionEdit);
-                actionCell.appendChild(document.createTextNode(" | "));
-                actionCell.appendChild(actionDelete);
-
-                tableRow.appendChild(actionCell);
-                tableBody.appendChild(tableRow);
-
-                counter++;
+            vehicleData.forEach((data) => {
+                tableRow.append(createCell(data));
             });
-        })
-        .catch((error) => {
-            console.error(
-                "There has been a problem with your fetch operation:",
-                error
-            );
+
+            let actionEdit = $("<a>")
+                .text("Edit")
+                .attr("href", `/edit/${vehicle.id}`);
+
+            let actionDelete = $("<a>")
+                .text("Delete")
+                .attr("href", "#")
+                .data("vehicle-id", vehicle.id)
+                .on("click", handleDelete);
+
+            let actionCell = $("<td>")
+                .append(actionEdit)
+                .append(" | ")
+                .append(actionDelete);
+
+            tableRow.append(actionCell);
+            tableBody.append(tableRow);
+
+            counter++;
         });
-
-    const createCell = (content) => {
-        const cell = document.createElement("td");
-        cell.textContent = content;
-        return cell;
-    };
-
-    const handleDelete = (event) => {
-        event.preventDefault();
-
-        const vehicleId = event.target.dataset.vehicleId;
-
-        const csrfToken = document
-            .querySelector('meta[name="csrf-token"]')
-            ?.getAttribute("content");
-
-        fetch(`/api/delete/${vehicleId}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-Token": csrfToken,
-            },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                event.target.closest("tr").remove();
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-    };
+    },
+    error: function (xhr, status, error) {
+        console.error(
+            "There has been a problem with your Ajax operation:",
+            error
+        );
+    },
 });
+
+const createCell = (content) => {
+    return $("<td>").text(content);
+};
+
+const handleDelete = function (event) {
+    event.preventDefault();
+
+    const vehicleId = $(this).data("vehicle-id");
+
+    const csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+    $.ajax({
+        url: `/api/delete/${vehicleId}`,
+        method: "DELETE",
+        contentType: "application/json",
+        headers: {
+            "X-CSRF-Token": csrfToken,
+        },
+        success: function (data) {
+            $(event.target).closest("tr").remove();
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+        },
+    });
+};
